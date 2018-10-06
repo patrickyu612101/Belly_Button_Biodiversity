@@ -7,12 +7,13 @@ function buildMetadata(sample) {
 var md=d3.select("#sample-metadata");
     d3.json(`/metadata/${sample}`).then((mdata)=>{
     // console.log(datad);
-    mdata.map((datam)=>{
-      return console.log(mdata);
+    md.html(" ");
+    var alldata=Object.entries(mdata);
+    alldata.forEach((alldata)=>{
+      md.append("p").text(alldata[0]+": "+alldata[1]);
+       console.log(alldata);
     });
-    // md.append("text").text("AGE:"+datad["AGE"]+" ");
-    // md.append("text").text("")
-
+   
     // Use `.html("") to clear any existing metadata
 
     // Use `Object.entries` to add each key and value pair to the panel
